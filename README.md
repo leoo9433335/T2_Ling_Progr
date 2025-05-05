@@ -131,6 +131,4 @@ Este sistema foi pensado para médicos, como uma linguagem acessível para regis
 
 👨‍💻 Autores
 
-    Nome do Aluno 1 (RA: xxx)
-
-    Nome do Aluno 2 (RA: xxx)
+   
