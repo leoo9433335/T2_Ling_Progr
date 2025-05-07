@@ -25,6 +25,9 @@ O sistema interpreta essa entrada e gera dados estruturados que podem ser usados
 git clone https://github.com/seu-usuario/prescription-dsl.git
 cd prescription-dsl
 
+Instale o interpretador ruby na sua maquina:
+https://rubyinstaller.org/
+
 Instale as dependências:
 
     bundle install
@@ -111,13 +114,11 @@ c) Ações semânticas envolvidas
 
     Extração de tokens (medicamento, dose, intervalo, duracao)
 
-    Cálculo automático de comprimidos_totais
-
 d) Ação adicional inserida
 
-Adicionamos a geração de uma mensagem explicativa para o paciente:
+Adicionamos uma calculo para saber quantos comprimidos tem que tomar:
+Cálculo automático de comprimidos_totais
 
-mensagem: "Tome 400mg de Ibuprofeno a cada 8h por 3 dias."
 
 🧑‍⚕️ Domínio de aplicação
 
@@ -131,6 +132,8 @@ Este sistema foi pensado para médicos, como uma linguagem acessível para regis
 
 👨‍💻 Autores
 
-    Nome do Aluno 1 (RA: xxx)
+    Nome do Aluno 1  Leonardo Duarte da Silva
 
-    Nome do Aluno 2 (RA: xxx)
+    Nome do Aluno 2 Cecilia Ricalcati da Silveira
+
+    Nome do Aluno 3 Brenda Brizola de Oliveira

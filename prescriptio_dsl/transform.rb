@@ -1,22 +1,20 @@
-equire_relative 'parser'
-require_relative 'transform'
+require 'parslet'
 
-parser = PrescriptionParser.new
-transform = PrescriptionTransform.new
+class PrescriptionTransform < Parslet::Transform
+  rule(
+    medicamento: simple(:med),
+    dose: simple(:dose),
+    intervalo: simple(:intervalo),
+    duracao: simple(:duracao)
+  ) do
+    comprimidos = (24 / intervalo.to_i) * duracao.to_i
 
-input = File.read('prescriptions.txt')
-
-begin
-  tree = parser.parse(input)
-  result = transform.apply(tree)
-
-  puts "\n📋 Prescrições Interpretadas:"
-  result.each_with_index do |r, i|
-    puts "\n#{i + 1}. #{r[:medicamento]} - #{r[:dose_mg]}mg"
-    puts "   Intervalo: #{r[:intervalo_horas]}h por #{r[:duracao_dias]} dias"
-    puts "   💊 Total de comprimidos: #{r[:comprimidos_totais]}"
+    {
+      medicamento: med.to_s.strip.capitalize,
+      dose_mg: dose.to_i,
+      intervalo_horas: intervalo.to_i,
+      duracao_dias: duracao.to_i,
+      comprimidos_totais: comprimidos
+    }
   end
-rescue Parslet::ParseFailed => error
-  puts "\n❌ Erro de parsing:\n\n"
-  puts error.parse_failure_cause.ascii_tree
 end
