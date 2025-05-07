@@ -20,14 +20,9 @@ O sistema interpreta essa entrada e gera dados estruturados que podem ser usados
 
 📦 Instalação
 
-    Clone o repositório:
-
-git clone https://github.com/seu-usuario/prescription-dsl.git
-cd prescription-dsl
-
-Instale o interpretador ruby na sua maquina:
-https://rubyinstaller.org/
-
+    Clone o repositório:git clone https://github.com/seu-usuario/prescription-dsl.git
+    Instale o interpretador ruby na sua maquina:https://rubyinstaller.org/
+    
 Instale as dependências:
 
     bundle install
@@ -36,7 +31,10 @@ Instale as dependências:
 
 ▶️ Como executar
 
-ruby exemplo.rb
+ cd prescription-dsl
+ 
+ ruby exemplo.rb
+
 
 📝 Exemplo de entrada (arquivo prescriptions.txt)
 
