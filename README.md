@@ -31,36 +31,37 @@ Instale as dependências:
 
 ▶️ Como executar
 
- cd prescription-dsl
- 
- ruby exemplo.rb
-
+    cd prescription-dsl
+    
+    ruby exemplo.rb
+   
 
 📝 Exemplo de entrada (arquivo prescriptions.txt)
-
-prescrever Paracetamol 500mg a cada 6h por 5 dias
-prescrever Amoxicilina 250mg a cada 8h por 7 dias
+    
+    prescrever Paracetamol 500mg a cada 6h por 5 dias
+    prescrever Amoxicilina 250mg a cada 8h por 7 dias
 
 ✅ Saída esperada
 
-📋 Prescrições Interpretadas:
 
-1. Paracetamol - 500mg
-   Intervalo: 6h por 5 dias
-   💊 Total de comprimidos: 20
-
-2. Amoxicilina - 250mg
-   Intervalo: 8h por 7 dias
-   💊 Total de comprimidos: 21
+    📋 Prescrições Interpretadas:
+    
+    1. Paracetamol - 500mg
+       Intervalo: 6h por 5 dias
+       💊 Total de comprimidos: 20
+    
+    2. Amoxicilina - 250mg
+       Intervalo: 8h por 7 dias
+       💊 Total de comprimidos: 21
 
 📌 Estrutura do projeto
 
-prescritor_dsl/
-├── parser.rb         # Gramática da linguagem (Parslet)
-├── transform.rb      # Ações semânticas
-├── exemplo.rb        # Execução principal
-├── prescriptions.txt # Entradas da DSL
-├── Gemfile           # Dependências
+    prescritor_dsl/
+    ├── parser.rb         # Gramática da linguagem (Parslet)
+    ├── transform.rb      # Ações semânticas
+    ├── exemplo.rb        # Execução principal
+    ├── prescriptions.txt # Entradas da DSL
+    ├── Gemfile           # Dependências
 
 ⚙️ Ações semânticas
 
@@ -81,32 +82,32 @@ E calcula automaticamente:
 
 🔧 Exemplo de regra com ação semântica (em transform.rb)
 
-rule(
-  medicamento: simple(:med),
-  dose: simple(:dose),
-  intervalo: simple(:intervalo),
-  duracao: simple(:duracao)
-) do
-  comprimidos = (24 / intervalo.to_i) * duracao.to_i
-  {
-    medicamento: med.to_s.capitalize,
-    dose_mg: dose.to_i,
-    intervalo_horas: intervalo.to_i,
-    duracao_dias: duracao.to_i,
-    comprimidos_totais: comprimidos
-  }
-end
+     rule(
+       medicamento: simple(:med),
+       dose: simple(:dose),
+       intervalo: simple(:intervalo),
+       duracao: simple(:duracao)
+     ) do
+       comprimidos = (24 / intervalo.to_i) * duracao.to_i
+       {
+         medicamento: med.to_s.capitalize,
+         dose_mg: dose.to_i,
+         intervalo_horas: intervalo.to_i,
+         duracao_dias: duracao.to_i,
+         comprimidos_totais: comprimidos
+       }
+     end
 
 🧪 Três entradas válidas da linguagem (com saída e ações)
 a) Entrada
 
-prescrever Ibuprofeno 400mg a cada 8h por 3 dias
+    prescrever Ibuprofeno 400mg a cada 8h por 3 dias
 
 b) Saída
 
-Ibuprofeno - 400mg
-Intervalo: 8h por 3 dias
-💊 Total de comprimidos: 9
+    Ibuprofeno - 400mg
+    Intervalo: 8h por 3 dias
+    💊 Total de comprimidos: 9
 
 c) Ações semânticas envolvidas
 
@@ -115,8 +116,9 @@ c) Ações semânticas envolvidas
 d) Ação adicional inserida
 
 Adicionamos uma calculo para saber quantos comprimidos tem que tomar:
-Cálculo automático de comprimidos_totais
 
+          Cálculo automático de comprimidos_totais
+          
 
 🧑‍⚕️ Domínio de aplicação
 
